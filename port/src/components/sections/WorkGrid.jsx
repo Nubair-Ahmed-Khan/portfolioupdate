@@ -5,7 +5,7 @@ import SplitType from 'split-type';
 import SocialApp from '../../videos/socialapp.mp4';
 import QuizApp from '../../videos/Quiz App.mp4';
 import Crud from '../../videos/Crud.mp4';
-import Skjewelry from '../../videos/SK jewelry.mp4';
+import Skjewelry from '../../videos/SKJewelry.mp4';
 
 gsap.registerPlugin(ScrollTrigger);
 
