@@ -6,11 +6,13 @@ import MenuOverlay from './components/layout/MenuOverlay';
 import Hero from './components/sections/Hero';
 import WorkGrid from './components/sections/WorkGrid';
 import Skills from './components/sections/Skills';
+import WhatIDo from './components/sections/WhatIDo';
 // import AboutSection from './components/sections/About'; // Home page wala about
 import AboutPage from './components/sections/About'; // Naya full About Page jo humne banaya
 import Footer from './components/layout/Footer';
 import LoadingScreen from './components/ui/LoadingScreen';
 import Contact from './components/sections/Contact';
+import Other from './components/sections/Other';
 
 
 
@@ -20,9 +22,11 @@ const Home = () => (
   
   <>
     
-    <Hero />
-    <WorkGrid />
+    <Hero/>
+    <WhatIDo/>
+    <WorkGrid/>
     <Skills/>
+     <Other/>
     
     
 
@@ -57,7 +61,7 @@ function App() {
             <Route path="/" element={<Home />} />
 
             {/* Jab koi "/about" par click kare to AboutPage dikhao */}
-            <Route path="/about" element={<AboutPage />} />
+            <Route path="/about" element={<><AboutPage /><WhatIDo /></>} />
 
             {/* Baaki pages ke routes yahan add karte jayein */}
             <Route path="/work" element={<WorkGrid />} />   

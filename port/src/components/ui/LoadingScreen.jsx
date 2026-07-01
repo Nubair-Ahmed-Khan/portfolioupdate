@@ -5,6 +5,7 @@ const LoadingScreen = ({ onComplete }) => {
   const containerRef = useRef(null);
   const textRef = useRef([]);
   const dotsRef = useRef([]);
+  const onCompleteRef = useRef(onComplete);
 
   const greetings = [
     "Hello",
@@ -19,13 +20,17 @@ const LoadingScreen = ({ onComplete }) => {
   ];
 
   useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
+
+  useEffect(() => {
     const tl = gsap.timeline({
       onComplete: () => {
         gsap.to(containerRef.current, {
           y: "-100%",
           duration: 0.8, // Slightly faster exit
           ease: "expo.inOut",
-          onComplete
+          onComplete: () => onCompleteRef.current?.()
         });
       }
     });
@@ -66,7 +71,7 @@ const LoadingScreen = ({ onComplete }) => {
     });
 
     return () => tl.kill();
-  }, [onComplete]);
+  }, []);
   return (
     <div
       ref={containerRef}

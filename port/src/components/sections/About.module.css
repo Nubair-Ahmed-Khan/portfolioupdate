@@ -1,0 +1,257 @@
+.aboutSection {
+  position: relative;
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  color: gray;
+  background-color: transparent; /* Remove background, let DottedBackground handle it */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* ... rest of your CSS ... */
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color:#4C5FD7;
+  margin-bottom: 50px;
+  text-align: left;
+  letter-spacing: -1px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.greeting {
+  font-size: 1.8rem;
+  color:rgb(117, 117, 245);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #CCC9C2;
+  margin: 0;
+}
+
+.highlight {
+  color: rgb(117, 117, 245);
+  font-weight: 600;
+}
+
+.techIntro {
+  font-size: 1rem;
+  color:#4C5FD7;
+  margin-top: 20px !important;
+  margin-bottom: 15px !important;
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.techColumn {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.techColumn li {
+  color: #b0c4de;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bullet {
+  color: rgb(117, 117, 245);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageBorder {
+  position: relative;
+  width: 360px;
+  height: 420px;
+  /* border: 3px solid rgb(117, 117, 245); */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 1px 1px 80px rgb(117, 117, 245);
+  background: linear-gradient(135deg, #1a2f4a 0%, #0f1f2e 100%);
+}
+
+.imageGradient {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(0, 217, 255, 0.1),
+    transparent
+  );
+  animation: shimmer 3s infinite;
+  z-index: 1;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translate(-100%, -100%) rotate(0deg);
+  }
+  100% {
+    transform: translate(100%, 100%) rotate(360deg);
+  }
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f1f2e 0%, #1a2f4a 100%);
+  position: relative;
+  z-index: 2;
+}
+
+.initials {
+  font-size: 7rem;
+  font-weight: 800;
+  color: #00d9ff;
+  text-shadow: 0 0 30px rgba(0, 217, 255, 0.5);
+  letter-spacing: -8px;
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a2f4a 0%, #0f1f2e 100%);
+  color: #64d5ff;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+
+  .techGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .imageBorder {
+    width: 240px;
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .greeting {
+    font-size: 1.4rem;
+  }
+
+  .text {
+    font-size: 0.9rem;
+  }
+
+  .imageBorder {
+    width: 300px;
+    height: 360px;
+    border-width: 2px;
+  }
+
+  .initials {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .greeting {
+    font-size: 1.4rem;
+  }
+
+  .text {
+    font-size: 0.9rem;
+  }
+
+  .imageBorder {
+    width: 240px;
+    height: 290px;
+    border-width: 2px;
+  }
+
+  .initials {
+    font-size: 3.5rem;
+  }
+}
+
+/* About.module.css */
+.aboutSection {
+  position: relative;
+  background-color: #0a0a0a; /* Match the dark background */
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Make text readable on the dotted background */
+.text, .greeting, .techIntro, .title {
+  color: #e8e4dc; /* Light text color for readability */
+}

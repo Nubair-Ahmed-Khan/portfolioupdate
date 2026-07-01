@@ -1,0 +1,275 @@
+.whatIdoSection {
+  min-height: auto;
+  padding: 100px 20px;
+  /* background: linear-gradient(135deg, #0a0f1f 0%, #1a1f3a 100%); */
+  background-color:#000000;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #64d5ff;
+  margin-bottom: 80px;
+  text-align: center;
+  letter-spacing: -1px;
+}
+
+/* Services Section */
+.servicesWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.illustrationPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  background: linear-gradient(135deg, #020411 100%);
+  border: 2px solid rgba(0, 217, 255, 0.1);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.illustrationPlaceholder::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(0, 217, 255, 0.05),
+    transparent
+  );
+  animation: shimmer 4s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translate(-100%, -100%) rotate(0deg);
+  }
+  100% {
+    transform: translate(100%, 100%) rotate(360deg);
+  }
+}
+
+.codeIcon {
+  font-size: 120px;
+  color: #00d9ff;
+  font-weight: 900;
+  text-shadow: 0 0 30px rgba(0, 217, 255, 0.3);
+  z-index: 1;
+}
+
+.servicesContent {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.subtitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #64d5ff;
+  margin: 0;
+}
+
+.servicesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.serviceItem {
+  color: #b0c4de;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.arrow {
+  color: #00d9ff;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Technologies Section */
+.techSection {
+  margin-top: 100px;
+}
+
+.techTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #64d5ff;
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 30px;
+}
+
+.techCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.05) 0%, rgba(100, 213, 255, 0.02) 100%);
+  border: 1px solid rgba(0, 217, 255, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.techCard:hover {
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(100, 213, 255, 0.05) 100%);
+  border-color: rgba(0, 217, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.15);
+  transform: translateY(-8px);
+}
+
+.iconWrapper {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 217, 255, 0.1);
+}
+
+.icon {
+  font-size: 2.2rem;
+}
+
+.techName {
+  font-size: 0.95rem;
+  color: #b0c4de;
+  margin: 0;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .servicesWrapper {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .illustrationPlaceholder {
+    height: 300px;
+  }
+
+  .codeIcon {
+    font-size: 80px;
+  }
+
+  .title {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .serviceItem {
+    font-size: 1rem;
+  }
+
+  .techGrid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+  }
+
+  .techCard {
+    padding: 16px;
+  }
+
+  .iconWrapper {
+    width: 50px;
+    height: 50px;
+  }
+
+  .icon {
+    font-size: 1.8rem;
+  }
+
+  .servicesWrapper {
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .serviceItem {
+    font-size: 0.9rem;
+    gap: 12px;
+  }
+
+  .techTitle {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+  }
+
+  .techGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+
+  .techCard {
+    padding: 12px;
+  }
+
+  .iconWrapper {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon {
+    font-size: 1.4rem;
+  }
+
+  .techName {
+    font-size: 0.8rem;
+  }
+}
