@@ -1,18 +1,19 @@
 import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
-import { useNavigate } from 'react-router-dom'; // 1. useNavigate import karein
+import { useNavigate } from 'react-router-dom';
 
 const MenuOverlay = ({ isOpen, onClose }) => {
   const menuRef = useRef();
-  const navigate = useNavigate(); // 2. Navigate function initialize karein
-  
+  const navigate = useNavigate();
+
   const links = [
     { title: 'Home', path: '/' },
     { title: 'Work', path: '/work' },
     { title: 'About', path: '/about' },
     { title: 'Contact', path: '/contact' },
-    
+    // 5th link – Resume (no internal route, we handle it differently)
+    { title: 'Resume', path: '/resume', isExternal: true },
   ];
 
   useEffect(() => {
@@ -31,12 +32,24 @@ const MenuOverlay = ({ isOpen, onClose }) => {
     }
   }, [isOpen]);
 
-  // 3. Navigation handler jo menu band karke page change karega
+  // Navigation handler for internal routes
   const handleNavigation = (path) => {
-    onClose(); // Pehle menu band karo
+    onClose();
     setTimeout(() => {
-      navigate(path); // Phir naye page par jao
-    }, 300); // Thoda sa delay taake animation smooth lage
+      navigate(path);
+    }, 300);
+  };
+
+  // Handler for Resume (opens PDF in new tab)
+  const openResume = () => {
+    onClose();
+    // Replace 'resume.pdf' with the actual path to your PDF
+    window.open('nubair resume.pdf');
+    // If you want to force download instead, use:
+    // const link = document.createElement('a');
+    // link.href = '/resume.pdf';
+    // link.download = 'My_Resume.pdf';
+    // link.click();
   };
 
   return (
@@ -47,17 +60,28 @@ const MenuOverlay = ({ isOpen, onClose }) => {
     >
       <div className="h-full flex flex-col justify-center items-center">
         <nav className="text-center">
-          {links.map((link) => (
-            <motion.div
-              key={link.title}
-              className="block text-white text-5xl md:text-7xl font-medium my-4 cursor-pointer hover:text-gray-400 transition-colors"
-              whileHover={{ x: 20 }}
-              onClick={() => handleNavigation(link.path)} // 4. Click par function call karein
-            >
-              <span className="text-sm mr-4 text-gray-500 italic">0{links.indexOf(link) + 1}</span>
-              {link.title}
-            </motion.div>
-          ))}
+          {links.map((link, index) => {
+            const isResume = link.isExternal;
+            return (
+              <motion.div
+                key={link.title}
+                className="block text-white text-5xl md:text-7xl font-medium my-4 cursor-pointer hover:text-gray-400 transition-colors"
+                whileHover={{ x: 20 }}
+                onClick={() => {
+                  if (isResume) {
+                    openResume();
+                  } else {
+                    handleNavigation(link.path);
+                  }
+                }}
+              >
+                <span className="text-sm mr-4 text-gray-500 italic">
+                  0{index + 1}
+                </span>
+                {link.title}
+              </motion.div>
+            );
+          })}
         </nav>
       </div>
     </div>
