@@ -11,7 +11,8 @@ const MenuOverlay = ({ isOpen, onClose }) => {
     { title: 'Home', path: '/' },
     { title: 'Work', path: '/work' },
     { title: 'About', path: '/about' },
-    { title: 'Contact', path: '/contact' }
+    { title: 'Contact', path: '/contact' },
+    
   ];
 
   useEffect(() => {

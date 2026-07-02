@@ -194,11 +194,11 @@ const Header = ({ onMenuClick, isOpen }) => {
             <div className="flex justify-between items-center max-w-[1800px] mx-auto">
                 {/* Logo */}
                 <div className="group cursor-pointer relative overflow-hidden h-7 w-48 pointer-events-auto">
-                    <span className={`block transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] font-medium text-lg 
+                    <span className={`block transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] font-medium text-md 
                         ${isMenuOpen ? '-translate-y-full' : 'group-hover:-translate-y-full'}`}>
                         © Code by Nubair
                     </span>
-                    <span className={`block absolute top-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] font-medium text-lg 
+                    <span className={`block absolute top-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] font-medium text-md 
                         ${isMenuOpen ? 'translate-y-0' : 'translate-y-full group-hover:translate-y-0'}`}>
                         © Nubair Ahmed
                     </span>

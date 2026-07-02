@@ -9,11 +9,23 @@ import {
   FaJs,
   FaReact,
   FaNode,
-  FaGitAlt,
   FaDatabase,
   FaPhp,
-  FaGoogle,
+  FaGitAlt,
 } from 'react-icons/fa';
+import {
+  SiTypescript,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiExpress,
+  SiMongodb,
+  SiFirebase,
+  SiReactquery,
+} from 'react-icons/si';
+import { DiBootstrap } from 'react-icons/di';
+// Zustand aur GSAP ke liye alternative icons
+import { TbBrandReactNative } from 'react-icons/tb'; // Zustand ke liye
+import { SiGrafana } from 'react-icons/si'; // GSAP ke liye alternative
 
 const WhatIDo = () => {
   const titleRef = useRef(null);
@@ -24,7 +36,6 @@ const WhatIDo = () => {
       splitTextWithReveal(titleRef.current);
     }
 
-    // Cards stagger animation
     cardsRef.current.forEach((card, index) => {
       if (!card) return;
       gsap.fromTo(
@@ -54,12 +65,21 @@ const WhatIDo = () => {
     { icon: FaHtml5, name: 'HTML5', color: '#FF5722' },
     { icon: FaCss3, name: 'CSS3', color: '#1572B6' },
     { icon: FaJs, name: 'JavaScript', color: '#F7DF1E' },
+    { icon: SiTypescript, name: 'TypeScript', color: '#3178C6' },
     { icon: FaReact, name: 'React.js', color: '#61DAFB' },
+    { icon: SiNextdotjs, name: 'Next.js', color: 'gray' },
+    { icon: SiTailwindcss, name: 'Tailwind CSS', color: '#06B6D4' },
+    { icon: DiBootstrap, name: 'Bootstrap', color: '#7952B3' },
+    { icon: SiExpress, name: 'Express.js', color: 'white' },
     { icon: FaNode, name: 'Node.js', color: '#68A063' },
-    { icon: FaDatabase, name: 'MYSQL', color: '#336791' },
-    { icon: FaPhp, name: 'PHP', color: '#2496ED' },
+    { icon: FaPhp, name: 'PHP', color: '#777BB4' },
+    { icon: SiMongodb, name: 'MongoDB', color: '#47A248' },
+    { icon: FaDatabase, name: 'MySQL', color: '#4479A1' },
+    { icon: TbBrandReactNative, name: 'Zustand', color: '#764ABC' }, // ✅ Zustand
+    { icon: SiFirebase, name: 'Firebase', color: '#FFCA28' },
+    { icon: SiGrafana, name: 'GSAP', color: '#88CE02' }, // ✅ GSAP
+    { icon: SiReactquery, name: 'TanStack Query', color: '#FF4154' },
     { icon: FaGitAlt, name: 'Git', color: '#F1502F' },
-    { icon: FaGoogle, name: 'GraphQL', color: '#E10098' },
   ];
 
   const services = [
@@ -84,14 +104,13 @@ const WhatIDo = () => {
           What I Do
         </h1>
 
-        {/* Services Section */}
         <div className={styles.servicesWrapper}>
           <div className={styles.illustrationPlaceholder}>
-         <DotLottieReact
-      src="https://lottie.host/a9eab9b2-9062-4154-b445-7f8e05455d28/w7VAwBoHoh.lottie"
-      loop
-      autoplay
-    />
+            <DotLottieReact
+              src="https://lottie.host/a9eab9b2-9062-4154-b445-7f8e05455d28/w7VAwBoHoh.lottie"
+              loop
+              autoplay
+            />
           </div>
 
           <div className={styles.servicesContent}>
@@ -107,7 +126,6 @@ const WhatIDo = () => {
           </div>
         </div>
 
-        {/* Technologies Section */}
         <div className={styles.techSection}>
           <h2 className={styles.techTitle}>Technologies & Tools</h2>
           <div className={styles.techGrid}>

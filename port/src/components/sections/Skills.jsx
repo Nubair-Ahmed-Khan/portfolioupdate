@@ -106,7 +106,7 @@ const Card = () => {
         {/* Image ID card wrapper set to hidden md:block */}
         <div
           onClick={handleFlip}
-          className={`hidden md:block relative w-[340px] h-[540px] cursor-pointer transition-transform duration-700 transform-style-3d shadow-2xl rounded-2xl ${isFlipped ? 'rotate-y-180' : ''
+          className={` relative w-[340px] h-[540px] cursor-pointer transition-transform duration-700 transform-style-3d shadow-2xl rounded-2xl ${isFlipped ? 'rotate-y-180' : ''
             }`}
         >
 

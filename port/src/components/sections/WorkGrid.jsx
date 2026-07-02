@@ -80,26 +80,26 @@ const MobileWork = () => {
 
   return (
     <section ref={containerRef} className=" bg-zinc-900 py-16 md:py-20 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-10 "><br /><br />
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-10 "><br /><br /> <br />
         <pre className="text-sm uppercase mb-8 md:mb-10 text-gray-500 tracking-widest">    Recent Work</pre>
         <br />
-        <div className="space-y-12 md:space-y-16 ">
+        <div  className="space-y-12 md:space-y-16 ">
           {mobileWorkItems.map((project) => (
             <div  key={project.id} onClick={() => handleClick(project)} className=" group flex flex-col md:flex-row gap-6 md:gap-10 cursor-pointer">
               <div className="w-full flex justify-around  md:w-5/12 aspect-video md:aspect-[16/10] overflow-hidden rounded-xl bg-zinc-900">
                 <img src={project.imgSrc} alt={project.title} className="w-100 h-full object-contain transition-transform duration-500 group-hover:scale-105" />
               </div>
-              <div className="flex-1 flex flex-col justify-between ">
+              <div style={{paddingLeft:"20px"}} className=" flex-1 flex flex-col justify-between ">
                 <div>
                   <h3 className="split-text text-3xl md:text-2xl font-medium text-white mb-3  transition-transform group-hover:-translate-x-1">
-                    &nbsp;&nbsp;&nbsp;{project.title}
+                    {project.title}
                   </h3>
-                  <p className="text-gray-400 text-lg"> &nbsp;&nbsp;&nbsp;{project.category}</p>
+                  <p className="text-gray-400 text-lg"> {project.category}</p>
                 </div>
                 <div className="mt-6 md:mt-0 flex justify-between items-end">
                   {/* <p className="text-white/70 text-sm tracking-widest">{project.year}</p> */}
                   <div className="text-[#455CE9] text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
-                  &nbsp;&nbsp;&nbsp;&nbsp;  View Project <span className="text-xl">→</span>
+                   View Project <span className="text-xl">→</span>
                   </div>
                 </div>
               </div>

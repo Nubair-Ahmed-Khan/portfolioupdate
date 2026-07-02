@@ -302,7 +302,7 @@ const About = () => {
           </div>
 
           <div className={styles.imageContainer}>
-            <div style={{height:"80vh"}} ref={imageRef} className={styles.imageBorder}>
+            <div style={{ height:"fit-content"}} ref={imageRef} className={styles.imageBorder}>
               <div className={styles.imageGradient}></div>
               <div className={styles.imagePlaceholder}>
                 <img src={aboutprofile} alt="Nubair Ahmed Khan" className={styles.profileImage} />

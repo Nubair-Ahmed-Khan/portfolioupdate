@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import Profile from '../../../public/circleprofile.png';
 
 const PortfolioFooter = () => {
   const containerRef = useRef(null);
@@ -134,7 +135,7 @@ const PortfolioFooter = () => {
   return (
     <footer
       ref={containerRef}
-      className="relative w-full min-h-[85vh] bg-[#181818] text-white overflow-hidden flex flex-col"
+      className="relative w-full min-h-[75vh] bg-[#181818] text-white overflow-hidden flex flex-col"
       style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}
       data-responsive-footer
     >
@@ -142,16 +143,16 @@ const PortfolioFooter = () => {
       <div className="relative z-10 flex flex-col flex-1 px-4 sm:px-8 lg:px-16 xl:px-24 py-6 sm:py-10">
         
         {/* Heading Section - with avatar and arrow */}
-        <div className="footer-heading-section flex items-start gap-3 sm:gap-5 mt-8 sm:mt-12 lg:mt-16 mb-6 sm:mb-8 lg:absolute lg:top-20 lg:left-30">
+        <div style={{  marginLeft:"-20px"}} className="footer-heading-section flex items-start gap-3 sm:gap-5 mt-8 sm:mt-12 lg:mt-16 mb-6 sm:mb-8 lg:absolute lg:top-20 lg:left-30">
           {/* Avatar */}
           <div
             ref={avatarRef}
             className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-full overflow-hidden flex-shrink-0 ml-0 sm:ml-4"
           >
             <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face"
+              src={Profile}
               alt="Profile"
-              className="w-full h-full object-cover"
+              className=" object-cover"
             />
           </div>
 
@@ -159,7 +160,7 @@ const PortfolioFooter = () => {
           <div className="flex-1">
             <h1
               ref={headingRef}
-              className="text-[clamp(4rem,6vw,7rem)] font-normal leading-[1.1] sm:leading-[1.05] tracking-tight"
+              className="text-[clamp(4rem,6vw,4rem)] font-normal leading-[1.1] sm:leading-[1.05] tracking-tight"
               style={{ fontWeight: 400 }}
             >
               Let's work<br />together
