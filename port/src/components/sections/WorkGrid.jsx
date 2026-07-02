@@ -6,15 +6,19 @@ import SocialApp from '../../videos/socialapp.mp4';
 import QuizApp from '../../videos/Quiz App.mp4';
 import Crud from '../../videos/Crud.mp4';
 import Skjewelry from '../../videos/SKJewelry.mp4';
+import socialappthumbnail from '../../../products/socialimg.jpg';
+import quizthumbnail from '../../../products/Quizimg.jpg';
+import skjewelrythumbnail from '../../../products/skjewelryimg.jpg';
+import crudthumbnail from '../../../products/crudimg.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
 // ----- MOBILE DATA (unchanged) -----
 const mobileWorkItems = [
-  { id: 1, title: "TWICE", category: "Interaction & Development", year: "2024", imgSrc: "https://picsum.photos/id/1015/800/600", liveLink: "#" },
-  { id: 2, title: "The Damai", category: "Branding & Design", year: "2023", imgSrc: "https://picsum.photos/id/201/800/600", liveLink: "#" },
-  { id: 3, title: "FABRIC™", category: "Web Experience", year: "2024", imgSrc: "https://picsum.photos/id/237/800/600", liveLink: "#" },
-  { id: 4, title: "Aanstekelijk", category: "Digital Design", year: "2023", imgSrc: "https://picsum.photos/id/180/800/600", liveLink: "#" },
+  { id: 1, title: "SOCIAL MEDIA APP", category: "Hackathon Competition", year: "2025", imgSrc: [socialappthumbnail], liveLink: "https://social-app-hackathon.vercel.app/" },
+  { id: 2, title: "QUIZ APP", category: "SMIT Project", year: "2024", imgSrc: [quizthumbnail], liveLink: "https://nubair-ahmed-khan.github.io/Quiz_App_Dynamic/" },
+  { id: 3, title: "SK JEWELRY", category: "Client Work", year: "2026", imgSrc: [skjewelrythumbnail], liveLink: "https://skjewelry.vercel.app/" },
+  { id: 4, title: "CRUD OPERATION", category: "Personal Project", year: "2025", imgSrc: [crudthumbnail], liveLink: "https://nubair-ahmed-khan.github.io/to-do-final/" },
 ];
 
 // ----- DESKTOP DATA (added subtitle field to match original design) -----
@@ -85,17 +89,17 @@ const MobileWork = () => {
               <div className="w-full flex justify-around  md:w-5/12 aspect-video md:aspect-[16/10] overflow-hidden rounded-xl bg-zinc-900">
                 <img src={project.imgSrc} alt={project.title} className="w-100 h-full object-contain transition-transform duration-500 group-hover:scale-105" />
               </div>
-              <div className="flex-1 flex flex-col justify-between py-2">
+              <div className="flex-1 flex flex-col justify-between ">
                 <div>
                   <h3 className="split-text text-3xl md:text-2xl font-medium text-white mb-3  transition-transform group-hover:-translate-x-1">
-                     {project.title}
+                    &nbsp;&nbsp;&nbsp;{project.title}
                   </h3>
-                  <p className="text-gray-400 text-lg">{project.category}</p>
+                  <p className="text-gray-400 text-lg"> &nbsp;&nbsp;&nbsp;{project.category}</p>
                 </div>
                 <div className="mt-6 md:mt-0 flex justify-between items-end">
                   {/* <p className="text-white/70 text-sm tracking-widest">{project.year}</p> */}
                   <div className="text-[#455CE9] text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
-                    View Project <span className="text-xl">→</span>
+                  &nbsp;&nbsp;&nbsp;&nbsp;  View Project <span className="text-xl">→</span>
                   </div>
                 </div>
               </div>

@@ -190,7 +190,7 @@ const Header = ({ onMenuClick, isOpen }) => {
     const dashOffset = circumference - (scrollProgress / 100) * circumference;
 
     return (
-        <header ref={headerRef} className="fixed top-5 left-10 right-0 z-[100] px-6 py-8 mix-blend-difference text-white">
+        <header ref={headerRef} className="fixed top-8 left-10 right-0 z-[100] px-6 py-8 mix-blend-difference text-white">
             <div className="flex justify-between items-center max-w-[1800px] mx-auto">
                 {/* Logo */}
                 <div className="group cursor-pointer relative overflow-hidden h-7 w-48 pointer-events-auto">

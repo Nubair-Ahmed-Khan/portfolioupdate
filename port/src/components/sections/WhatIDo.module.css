@@ -13,7 +13,7 @@
 .title {
   font-size: 3.5rem;
   font-weight: 800;
-  color: #64d5ff;
+  color: gray;
   margin-bottom: 80px;
   text-align: center;
   letter-spacing: -1px;
@@ -33,8 +33,8 @@
   align-items: center;
   justify-content: center;
   height: 400px;
-  background: linear-gradient(135deg, #020411 100%);
-  border: 2px solid rgba(0, 217, 255, 0.1);
+  /* background: linear-gradient(135deg, rgba(128, 128, 128, 0.39) 100%); */
+  /* border: 2px solid rgba(0, 217, 255, 0.1); */
   border-radius: 16px;
   position: relative;
   overflow: hidden;
@@ -82,7 +82,7 @@
 .subtitle {
   font-size: 2rem;
   font-weight: 700;
-  color: #64d5ff;
+  color:rgb(117, 117, 245);
   margin: 0;
 }
 
@@ -105,7 +105,7 @@
 }
 
 .arrow {
-  color: #00d9ff;
+  color: rgb(117, 117, 245);
   font-weight: bold;
   flex-shrink: 0;
   margin-top: 2px;
@@ -119,9 +119,9 @@
 .techTitle {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #64d5ff;
+  color: rgb(117, 117, 245);
   margin-bottom: 50px;
-  text-align: left;
+  text-align: center;
 }
 
 .techGrid {
@@ -145,8 +145,8 @@
 }
 
 .techCard:hover {
-  background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(100, 213, 255, 0.05) 100%);
-  border-color: rgba(0, 217, 255, 0.3);
+  background: linear-gradient(135deg, rgb(55, 56, 56) 0%, rgba(25, 27, 27, 0.05) 100%);
+  /* border-color: rgb(117, 117, 245); */
   box-shadow: 0 0 20px rgba(0, 217, 255, 0.15);
   transform: translateY(-8px);
 }

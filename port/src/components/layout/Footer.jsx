@@ -191,12 +191,15 @@ const PortfolioFooter = () => {
         {/* Circle Button */}
         <div className="footer-circle-btn-container flex justify-start lg:justify-end mt-6 mb-8 lg:absolute lg:top-60 lg:right-20">
           <div ref={circleBtnRef} className="ml-0 lg:ml-24">
-            <button
+          <a 
+          ref={emailRef}
+            href="mailto:nubairahmed0@gmail.com"
               className="w-28 h-28 sm:w-32 sm:h-32 lg:w-44 lg:h-44 rounded-full bg-[#4c5fd7] flex items-center justify-center text-white text-sm sm:text-base font-medium hover:bg-[#3d4fc0] transition-colors duration-300 cursor-pointer"
               style={{ backgroundColor: '#4c5fd7' }}
+              
             >
               Get in touch
-            </button>
+            </a>
           </div>
         </div>
 
@@ -217,7 +220,7 @@ const PortfolioFooter = () => {
             href="tel:+31627847430"
             className="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4 rounded-full border border-[#333] text-sm sm:text-base text-white/90 hover:bg-[#3d4fc0] transition-all duration-300"
           >
-            +31 6 27 84 74 30 
+            +92 336 8476324 
           </a>
         </div>
 
@@ -240,7 +243,8 @@ const PortfolioFooter = () => {
           <div ref={socialsRef} className="flex items-center gap-4 sm:gap-6">
             {/* GitHub */}
             <a
-              href="#"
+              href="https://github.com/Nubair-Ahmed-Khan"
+              target="_blank"
               className="text-white/60 hover:text-white transition-colors duration-300"
               aria-label="GitHub"
             >
@@ -250,7 +254,8 @@ const PortfolioFooter = () => {
             </a>
             {/* LinkedIn */}
             <a
-              href="#"
+              href="https://www.linkedin.com/in/nubair-ahmed-0bb30a354/"
+              target="_blank"
               className="text-white/60 hover:text-white transition-colors duration-300"
               aria-label="LinkedIn"
             >
@@ -260,7 +265,8 @@ const PortfolioFooter = () => {
             </a>
             {/* Instagram */}
             <a
-              href="#"
+              href="https://www.instagram.com/nubair_khan_01/?hl=en"
+              target="_blank"
               className="text-white/60 hover:text-white transition-colors duration-300"
               aria-label="Instagram"
             >

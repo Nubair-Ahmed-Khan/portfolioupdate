@@ -26,8 +26,6 @@ const Hero = () => {
     let smoothVelocity = 0;
 
     // ── Draw dotted pattern on canvas ──────────────────
-    // cursorX / cursorY: cursor position relative to canvas (or null if not hovering)
-    // intensity: 0-1, how "active" the cursor-magnify effect currently is (smoothly faded)
     const drawDots = (canvas, cursorX = null, cursorY = null, intensity = 0) => {
         const ctx = canvas.getContext('2d');
         const W = canvas.width;
@@ -37,7 +35,6 @@ const Hero = () => {
         const cy = H * 0.45;
         const glowR = Math.min(W, H) * 0.32;
 
-        // How far the cursor's influence reaches, and how much extra radius it adds
         const influenceR = 140;
         const maxExtraRadius = 2.6;
         const maxExtraAlpha = 0.35;
@@ -62,15 +59,14 @@ const Hero = () => {
                     alpha = 0.13 - fade * 0.11;
                 }
 
-                // ── Cursor magnify influence ──
                 if (intensity > 0.001 && cursorX !== null) {
                     const cdx = x - cursorX;
                     const cdy = y - cursorY;
                     const cdist = Math.sqrt(cdx * cdx + cdy * cdy);
 
                     if (cdist < influenceR) {
-                        const falloff = 1 - cdist / influenceR; // 1 at center, 0 at edge
-                        const eased = falloff * falloff; // smoother falloff curve
+                        const falloff = 1 - cdist / influenceR;
+                        const eased = falloff * falloff;
                         baseR += maxExtraRadius * eased * intensity;
                         alpha += maxExtraAlpha * eased * intensity;
                     }
@@ -90,7 +86,6 @@ const Hero = () => {
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
-        // ── Canvas setup ──────────────────────────────
         const canvas = canvasRef.current;
         const section = canvas.parentElement;
 
@@ -102,7 +97,6 @@ const Hero = () => {
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
-        // ── Lenis smooth scroll ───────────────────────
         const lenis = new Lenis({
             duration: 1.4,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -115,7 +109,6 @@ const Hero = () => {
         gsap.ticker.add((time) => lenis.raf(time * 1000));
         gsap.ticker.lagSmoothing(0);
 
-        // ── SplitType animation ───────────────────────
         const splitFirst  = new SplitType(firstText.current,  { types: 'chars' });
         const splitSecond = new SplitType(secondText.current, { types: 'chars' });
         gsap.from([...splitFirst.chars, ...splitSecond.chars], {
@@ -127,7 +120,6 @@ const Hero = () => {
             delay: 3.5,
         });
 
-        // ── Profile: B&W → color on hover ─────────────
         gsap.set(profileRef.current, { filter: 'grayscale(100%)', scale: 1 });
 
         const onProfileEnter = () => gsap.to(profileRef.current, {
@@ -143,21 +135,15 @@ const Hero = () => {
         profileEl.addEventListener('mouseenter', onProfileEnter);
         profileEl.addEventListener('mouseleave', onProfileLeave);
 
-        // ── Custom cursor + dotted-bg magnify effect ──
-        // raw target mouse position (viewport coords)
         const mouse = { x: -200, y: -200 };
-        // smoothed/lerped position, used for both the cursor UI and the dot glow
         const smooth = { x: -200, y: -200 };
 
         let cursorScale = 1;
         let targetCursorScale = 1;
-
         let cursorOpacity = 0;
         let targetCursorOpacity = 0;
-
         let hoverIntensity = 0;
         let targetHoverIntensity = 0;
-
         let cursorRAF = null;
 
         const onSectionMouseMove = (e) => {
@@ -180,7 +166,6 @@ const Hero = () => {
         section.addEventListener('mouseleave', onSectionMouseLeave);
 
         const updateCursor = () => {
-            // lerp everything for buttery smoothness
             smooth.x += (mouse.x - smooth.x) * 0.16;
             smooth.y += (mouse.y - smooth.y) * 0.16;
             cursorScale += (targetCursorScale - cursorScale) * 0.15;
@@ -198,7 +183,6 @@ const Hero = () => {
                 cursorDotRef.current.style.opacity = cursorOpacity;
             }
 
-            // redraw dots relative to canvas, using the same smoothed position
             const rect = canvas.getBoundingClientRect();
             drawDots(canvas, smooth.x - rect.left, smooth.y - rect.top, hoverIntensity);
 
@@ -206,7 +190,6 @@ const Hero = () => {
         };
         updateCursor();
 
-        // ── Marquee helpers ───────────────────────────
         const applyPosition = () => {
             gsap.set(firstText.current,  { xPercent });
             gsap.set(secondText.current, { xPercent });
@@ -216,7 +199,6 @@ const Hero = () => {
             if (xPercent > 0)     xPercent = -100;
         };
 
-        // ── Auto scroll ───────────────────────────────
         const animateAutoScroll = () => {
             if (!isHovering && !decelerating) {
                 xPercent += 0.045 * direction;
@@ -227,7 +209,6 @@ const Hero = () => {
         };
         animateAutoScroll();
 
-        // ── Inertia deceleration ──────────────────────
         const startDeceleration = () => {
             if (decelerating) return;
             decelerating = true;
@@ -249,7 +230,6 @@ const Hero = () => {
             requestAnimationFrame(decelerate);
         };
 
-        // ── Mouse / touch events (marquee drag) ───────
         const onMouseEnter = () => {
             isHovering = true;
             decelerating = false;
@@ -302,7 +282,6 @@ const Hero = () => {
         container.addEventListener('touchmove',   onTouchMove,  { passive: false });
         container.addEventListener('touchend',    onTouchEnd);
 
-        // ── Scroll direction trigger ──────────────────
         gsap.to(slider.current, {
             scrollTrigger: {
                 trigger: document.documentElement,
@@ -378,17 +357,16 @@ const Hero = () => {
                 }}
             />
 
-
-
             {/* ── Location tag left ── */}
             <div className="absolute left-8 bottom-[40%] z-20">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
                 <p className="text-[10px] tracking-[.12em] uppercase"
                    style={{
                        color: 'rgba(232,228,220,0.22)',
                        writingMode: 'vertical-lr',
                        transform: 'rotate(180deg)',
                    }}>
-                    Karachi, PK &nbsp;/&nbsp; 2024
+                  <i class="fa-solid fa-earth-asia"></i>  Karachi, PK &nbsp;/&nbsp; 2026
                 </p>
             </div>
 
@@ -407,20 +385,21 @@ const Hero = () => {
             </div>
 
             {/* ── Marquee ── */}
+            {/* 🔽 CHANGED: bottom position & font size for mobile */}
             <div
                 ref={containerRef}
-                className="absolute bottom-[-3%] whitespace-nowrap overflow-visible z-20
+                className="absolute bottom-[6%] md:bottom-[-3%] whitespace-nowrap overflow-visible z-20
                            cursor-grab active:cursor-grabbing select-none"
                 style={{ WebkitTapHighlightColor: 'transparent' }}
             >
                 <div ref={slider} className="relative flex">
                     <h1 ref={firstText}
-                        className="text-[15vw] font-medium pr-10 m-0 uppercase tracking-tight"
+                        className="text-[20vw] md:text-[15vw] font-medium pr-10 m-0 uppercase tracking-tight"
                         style={{ color: '#e8e4dc', willChange: 'transform', opacity: 0.88 }}>
                         Nubair Ahmed Khan —
                     </h1>
                     <h1 ref={secondText}
-                        className="text-[15vw] font-medium pr-10 m-0 uppercase tracking-tight absolute left-full"
+                        className="text-[20vw] md:text-[15vw] font-medium pr-10 m-0 uppercase tracking-tight absolute left-full"
                         style={{ color: '#e8e4dc', willChange: 'transform', opacity: 0.88 }}>
                         Nubair Ahmed Khan —
                     </h1>

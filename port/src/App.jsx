@@ -12,7 +12,7 @@ import AboutPage from './components/sections/About'; // Naya full About Page jo 
 import Footer from './components/layout/Footer';
 import LoadingScreen from './components/ui/LoadingScreen';
 import Contact from './components/sections/Contact';
-import Other from './components/sections/Other';
+
 
 
 
@@ -26,7 +26,7 @@ const Home = () => (
     <WhatIDo/>
     <WorkGrid/>
     <Skills/>
-     <Other/>
+     
     
     
 

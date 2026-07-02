@@ -55,7 +55,7 @@ const ContactPage = () => {
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-extralight leading-none tracking-tight">
             LET'S START <br />
             A PROJECT{' '}
-            <span className="text-[#4C5FD7] italic">
+            <span className="text-[#4C5FD7] font-bold italic">
               TOGETHER
             </span>
           </h1>
@@ -75,7 +75,7 @@ const ContactPage = () => {
                 CALL US
               </p>
               <p className="text-[#999D9E] text-lg">
-                +92 300 1234567
+                +92 336 8476324
               </p>
             </div>
 
@@ -185,7 +185,7 @@ const ContactPage = () => {
 
             <button style={{
             padding: "15px"
-        }}
+        }}    href="mailto:nubairahmed0@gmail.com"
               type="submit"
               disabled={isSubmitting}
               className="
